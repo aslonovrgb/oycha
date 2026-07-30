@@ -60,6 +60,14 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 body {
@@ -68,6 +76,35 @@ body {
   font-family: var(--font-geist-sans), Arial, sans-serif;
   margin: 0;
   overflow-x: hidden;
+}
+
+.scroll-progress {
+  background: color-mix(in srgb, var(--jimo-forest-950) 22%, transparent);
+  height: 0.28rem;
+  inset: 0 0 auto;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 300;
+}
+
+.scroll-progress__bar {
+  --scroll-progress: 0;
+
+  background: linear-gradient(
+    90deg,
+    var(--jimo-lime-300) 0%,
+    var(--jimo-matcha-300) 70%,
+    var(--jimo-mango-400) 100%
+  );
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  box-shadow:
+    0 0 0.65rem color-mix(in srgb, var(--jimo-lime-300) 72%, transparent),
+    0 0 1.4rem color-mix(in srgb, var(--jimo-mango-400) 34%, transparent);
+  height: 100%;
+  transform: scaleX(var(--scroll-progress));
+  transform-origin: left center;
+  will-change: transform;
 }
 
 body::before {
