@@ -8,6 +8,9 @@ const menu = [
     description:
       "Rich, smooth Japanese matcha poured over fresh full cream milk.",
     accent: "matcha",
+    image: "/jimo/drink-matcha-latte-4k.webp",
+    imageAlt:
+      "Iced Jimo Matcha Latte with vivid green matcha cascading into milk",
   },
   {
     number: "02",
@@ -16,6 +19,9 @@ const menu = [
     description:
       "Roasted Japanese green tea with a warm, gently nutty aroma.",
     accent: "hojicha",
+    image: "/jimo/drink-hojicha-latte-4k.webp",
+    imageAlt:
+      "Iced Jimo Hojicha Latte with roasted tea cascading into milk",
   },
   {
     number: "03",
@@ -24,6 +30,9 @@ const menu = [
     description:
       "A bright fusion of matcha, mango purée and a clean hint of lemon.",
     accent: "mango",
+    image: "/jimo/drink-matcha-mango-4k.webp",
+    imageAlt:
+      "Iced Jimo Matcha Mango with vivid green matcha over golden mango",
   },
 ];
 
@@ -58,7 +67,13 @@ export default function Home() {
 
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Jimo Matcha home">
-          Jimŏ Matcha
+          <Image
+            src="/jimo/jimo-logo-green.png"
+            alt=""
+            width={835}
+            height={346}
+            priority
+          />
         </a>
         <nav aria-label="Main navigation">
           <a href="#story">Our matcha</a>
@@ -101,15 +116,24 @@ export default function Home() {
 
         <div className="hero-photo">
           <Image
-            src="/jimo/original-pack-photo.jpg"
-            alt="Original Jimo Matcha portable packs in matcha and matcha mango flavours"
+            src="/jimo/hero-pouches-4k.webp"
+            alt="Chilled Jimo Matcha portable packs in matcha latte, matcha and matcha mango flavours"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 48vw"
           />
+          <div className="hero-brand" aria-hidden="true">
+            <Image
+              src="/jimo/jimo-logo-white.png"
+              alt=""
+              width={835}
+              height={346}
+            />
+            <span>Premium Kagoshima matcha</span>
+          </div>
           <div className="photo-label">
-            <span>Real Jimo</span>
-            <strong>Pack it. Chill it. Go.</strong>
+            <span>Freshly crafted · Made to move</span>
+            <strong>Pack it. Chill it. Gooo.</strong>
           </div>
         </div>
 
@@ -193,6 +217,14 @@ export default function Home() {
               <div className="menu-item-top">
                 <span>{item.number}</span>
                 <small>{item.tag}</small>
+              </div>
+              <div className="menu-drink">
+                <Image
+                  src={item.image}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(max-width: 1000px) 92vw, 30vw"
+                />
               </div>
               <h3>{item.name}</h3>
               <p>{item.description}</p>
@@ -307,8 +339,17 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="footer-wordmark" href="#top">
-          Jimŏ Matcha
+        <a
+          className="footer-wordmark"
+          href="#top"
+          aria-label="Jimo Matcha home"
+        >
+          <Image
+            src="/jimo/jimo-logo-white.png"
+            alt=""
+            width={835}
+            height={346}
+          />
         </a>
         <div>
           <span>Premium Kagoshima matcha</span>

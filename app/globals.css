@@ -153,16 +153,17 @@ p {
   z-index: 20;
 }
 
-.wordmark,
-.footer-wordmark {
-  font-family: var(--font-editorial), Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: -0.065em;
+.wordmark {
+  align-items: center;
+  display: flex;
+  width: clamp(4.8rem, 7vw, 6.8rem);
 }
 
-.wordmark {
-  font-size: clamp(1.45rem, 2.3vw, 2rem);
+.wordmark img,
+.footer-wordmark img {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .site-header nav {
@@ -354,15 +355,43 @@ p {
   position: absolute;
 }
 
-.hero-photo img {
+.hero-photo > img {
   filter: saturate(0.92) contrast(1.03);
   object-fit: cover;
-  object-position: center;
+  object-position: center 54%;
   transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.hero-photo:hover img {
+.hero-photo:hover > img {
   transform: scale(1.025);
+}
+
+.hero-brand {
+  color: var(--jimo-paper-50);
+  left: clamp(7.5rem, 9vw, 9rem);
+  position: absolute;
+  top: clamp(2rem, 5vw, 5rem);
+  width: clamp(9.5rem, 16vw, 16rem);
+  z-index: 3;
+}
+
+.hero-brand img {
+  display: block;
+  filter: drop-shadow(0 0.2rem 0.9rem rgb(0 0 0 / 28%));
+  height: auto;
+  width: 100%;
+}
+
+.hero-brand span {
+  border-top: 1px solid color-mix(in srgb, currentColor 48%, transparent);
+  display: block;
+  font-size: 0.54rem;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .photo-label {
@@ -640,7 +669,7 @@ p {
   color: var(--jimo-forest-950);
   display: flex;
   flex-direction: column;
-  min-height: 29rem;
+  min-height: 45rem;
   overflow: hidden;
   padding: clamp(1.5rem, 3vw, 2.3rem);
   position: relative;
@@ -705,13 +734,41 @@ p {
   text-transform: uppercase;
 }
 
+.menu-drink {
+  background: var(--jimo-paper-50);
+  border-radius: calc(var(--card-radius) * 0.64);
+  height: clamp(17rem, 23vw, 22rem);
+  margin: 1.1rem 0 1.8rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-drink::after {
+  border: 1px solid color-mix(in srgb, var(--jimo-forest-950) 8%, transparent);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.menu-drink img {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.menu-item:hover .menu-drink img {
+  transform: scale(1.035);
+}
+
 .menu-item h3 {
   font-family: var(--font-editorial), Georgia, serif;
   font-size: clamp(2.8rem, 4.3vw, 4.5rem);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.84;
-  margin: auto 0 1.2rem;
+  margin: 0 0 1.2rem;
   max-width: 7ch;
   position: relative;
   z-index: 2;
@@ -729,6 +786,7 @@ p {
   border-top: 1px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: auto;
   padding-top: 1rem;
 }
 
@@ -1026,8 +1084,8 @@ footer {
 }
 
 .footer-wordmark {
-  font-size: clamp(2.8rem, 6vw, 6rem);
-  line-height: 0.75;
+  display: block;
+  width: clamp(8rem, 15vw, 15rem);
 }
 
 footer > div {
@@ -1090,6 +1148,10 @@ footer small {
     min-height: 78svh;
   }
 
+  .hero-brand {
+    left: 1.5rem;
+  }
+
   .hero-sticker {
     right: 1.5rem;
     top: calc(78svh - 2rem);
@@ -1115,11 +1177,15 @@ footer small {
   }
 
   .menu-item {
-    min-height: 24rem;
+    min-height: 45rem;
   }
 
   .menu-item h3 {
     max-width: none;
+  }
+
+  .menu-drink {
+    height: clamp(18rem, 52vw, 27rem);
   }
 
   .mango-feature {
@@ -1184,6 +1250,12 @@ footer small {
     min-height: 73svh;
   }
 
+  .hero-brand {
+    left: 1.3rem;
+    top: 1.7rem;
+    width: 9.5rem;
+  }
+
   .hero-sticker {
     top: calc(72svh - 1.8rem);
   }
@@ -1232,11 +1304,16 @@ footer small {
 
   .menu-item {
     border-radius: var(--radius-md);
-    min-height: 23rem;
+    min-height: 43rem;
   }
 
   .menu-item h3 {
     font-size: clamp(3.2rem, 15vw, 4.7rem);
+  }
+
+  .menu-drink {
+    border-radius: calc(var(--radius-md) * 0.7);
+    height: min(78vw, 25rem);
   }
 
   .mango-image {
