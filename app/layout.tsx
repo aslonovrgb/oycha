@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,15 +7,17 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const editorial = Cormorant_Garamond({
+  variable: "--font-editorial",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "OYCHA — Matcha, Remixed",
+  title: "Jimo Matcha — Premium Kagoshima Matcha",
   description:
-    "Ceremonial Nanzan matcha, playful fruit and good mood energy in every cup.",
+    "Premium Kagoshima matcha, freshly crafted and packed to go. Discover Matcha Latte, Hojicha Latte and the signature dairy-free Matcha Mango.",
   other: {
     "codex-preview": "development",
   },
@@ -33,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${editorial.variable} antialiased`}
       >
         {children}
       </body>

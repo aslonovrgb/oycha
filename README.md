@@ -1,8 +1,7 @@
-# vinext-starter
+# Jimo Matcha Website
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+The official Jimo Matcha brand site, built with Next.js and Vinext. It features
+the current drink menu, portable-pack story, and original Jimo product imagery.
 
 ## Prerequisites
 
