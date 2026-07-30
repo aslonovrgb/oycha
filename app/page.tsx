@@ -34,6 +34,17 @@ const menu = [
     imageAlt:
       "Iced Jimo Matcha Mango with vivid green matcha over golden mango",
   },
+  {
+    number: "04",
+    tag: "New · Citrus",
+    name: "Yuzu Matcha",
+    description:
+      "Ceremonial matcha lifted by bright Japanese yuzu for a crisp, clean citrus finish.",
+    accent: "yuzu",
+    image: "/jimo/drink-yuzu-matcha-4k.webp",
+    imageAlt:
+      "Iced Jimo Yuzu Matcha with vivid green matcha over luminous yuzu citrus",
+  },
 ];
 
 const ritual = [
@@ -148,11 +159,11 @@ export default function Home() {
         <div>
           <span>Jimo Matcha Gooo</span>
           <b>✦</b>
-          <span>Shake · Sip · Enjoy</span>
+          <span>Four signatures · One ritual</span>
           <b>✦</b>
           <span>Jimo Matcha Gooo</span>
           <b>✦</b>
-          <span>Shake · Sip · Enjoy</span>
+          <span>Four signatures · One ritual</span>
           <b>✦</b>
         </div>
       </div>
@@ -171,13 +182,26 @@ export default function Home() {
           </h2>
           <div className="story-notes">
             <p>
-              Jimo starts with premium Kagoshima matcha: vivid, smooth and made
-              fresh every day.
+              Jimo starts with ceremonial-grade matcha from Kagoshima: vivid,
+              smooth and freshly crafted every day.
             </p>
             <p>
               We pack the ritual into a portable pouch so good matcha can meet
               you at work, in the car, after the gym — anywhere.
             </p>
+          </div>
+          <div className="story-origin" aria-label="The meaning behind Jimo">
+            <div>
+              <span>Jì</span>
+              <strong>稷</strong>
+              <p>Nourishment from the earth</p>
+            </div>
+            <i aria-hidden="true">+</i>
+            <div>
+              <span>Mǒ</span>
+              <strong>抹</strong>
+              <p>The gentle art of whisking matcha</p>
+            </div>
           </div>
         </div>
         <div className="story-seal" aria-hidden="true">
@@ -188,7 +212,7 @@ export default function Home() {
       <section className="menu-section" id="menu">
         <div className="menu-heading">
           <div>
-            <p className="kicker light">The Jimo three</p>
+            <p className="kicker light">The Jimo four</p>
             <h2>
               Pick your
               <br />
@@ -196,19 +220,28 @@ export default function Home() {
             </h2>
           </div>
           <p>
-            One premium tea ritual, three moods. Every size keeps the same
+            One premium tea ritual, four moods. Every size keeps the same
             full-flavour Jimo energy.
           </p>
         </div>
 
         <div className="menu-photo">
           <Image
-            src="/jimo/menu-trio-generated.jpg"
-            alt="Matcha latte, hojicha latte and matcha mango arranged on warm handmade paper"
+            src="/jimo/menu-four-pouches-4k.webp"
+            alt="Four chilled Jimo pouches: Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha"
             fill
             sizes="(max-width: 900px) 100vw, 90vw"
           />
-          <span>Serving suggestion · Generated editorial image</span>
+          <div className="menu-photo-brand" aria-hidden="true">
+            <Image
+              src="/jimo/jimo-logo-green.png"
+              alt=""
+              width={835}
+              height={346}
+            />
+            <span>Four flavours · One daily ritual</span>
+          </div>
+          <span>Jimo family · Generated from original product references</span>
         </div>
 
         <div className="menu-list">
