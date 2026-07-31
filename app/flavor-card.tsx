@@ -55,7 +55,8 @@ export function FlavorCard({ item }: { item: Flavor }) {
             <Image
               src={item.image}
               alt={item.imageAlt}
-              fill
+              width={2560}
+              height={3200}
               sizes="(max-width: 1000px) 92vw, 30vw"
             />
           </div>
@@ -105,7 +106,8 @@ export function FlavorCard({ item }: { item: Flavor }) {
             <Image
               src={item.packImage}
               alt={item.packAlt}
-              fill
+              width={1024}
+              height={1536}
               sizes="(max-width: 1000px) 92vw, 30vw"
             />
             <span aria-hidden="true">6G</span>

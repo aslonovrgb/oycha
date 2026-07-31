@@ -254,7 +254,7 @@ p {
   background: var(--jimo-paper-100);
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(25rem, 0.98fr);
-  min-height: 100svh;
+  min-height: calc(100svh - 2rem);
   overflow: hidden;
   padding-top: 4.6rem;
   position: relative;
@@ -368,32 +368,44 @@ p {
 }
 
 .hero-photo {
-  background: var(--jimo-matcha-300);
-  min-height: calc(100svh - 4.6rem);
+  background: #091b11;
+  isolation: isolate;
+  min-height: calc(100svh - 6.6rem);
   overflow: hidden;
   position: relative;
   z-index: 2;
 }
 
+.hero-photo-backdrop {
+  filter: blur(2.2rem) saturate(0.8) brightness(0.72);
+  object-fit: cover;
+  opacity: 0.78;
+  transform: scale(1.08);
+  z-index: 0;
+}
+
 .hero-photo::after {
   background: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--jimo-paper-100) 12%, transparent),
-    transparent 18%
+    color-mix(in srgb, var(--jimo-paper-100) 9%, transparent),
+    transparent 22%,
+    color-mix(in srgb, var(--jimo-black) 8%, transparent)
   );
   content: "";
   inset: 0;
   pointer-events: none;
   position: absolute;
+  z-index: 2;
 }
 
-.hero-photo > img {
-  object-fit: contain;
+.hero-photo-art {
+  object-fit: contain !important;
   object-position: center;
   transition: filter 500ms ease;
+  z-index: 1;
 }
 
-.hero-photo:hover > img {
+.hero-photo:hover .hero-photo-art {
   filter: saturate(1.04) contrast(1.02);
 }
 
@@ -697,12 +709,13 @@ p {
 }
 
 .menu-photo {
-  aspect-ratio: 3 / 2;
+  background: var(--jimo-paper-100);
   border-radius: var(--card-radius);
   margin: 0 auto;
   max-width: 94rem;
   overflow: hidden;
   position: relative;
+  width: min(100%, 117svh);
 }
 
 .menu-photo::after {
@@ -716,12 +729,15 @@ p {
 }
 
 .menu-photo > img {
-  object-fit: cover;
+  display: block;
+  height: auto;
+  object-fit: contain;
   transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
 }
 
 .menu-photo:hover > img {
-  transform: scale(1.012);
+  transform: scale(1.003);
 }
 
 .pack-intro {
@@ -894,13 +910,16 @@ p {
 }
 
 .menu-drink img {
+  display: block;
+  height: 100%;
   object-fit: contain;
   object-position: center;
   transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
 }
 
 .menu-item:hover .menu-drink img {
-  transform: scale(1.035);
+  transform: scale(1.008);
 }
 
 .menu-item h3 {
@@ -1000,9 +1019,9 @@ p {
 .menu-pack-stage {
   background: color-mix(in srgb, var(--jimo-paper-100) 70%, white);
   border-radius: calc(var(--card-radius) * 0.64);
-  flex: 1;
+  flex: 0 0 clamp(20rem, 24vw, 24rem);
   margin: 1.1rem 0 1.25rem;
-  min-height: 24rem;
+  min-height: 0;
   overflow: hidden;
   position: relative;
 }
@@ -1017,13 +1036,16 @@ p {
 }
 
 .menu-pack-stage img {
+  display: block;
+  height: 100%;
   object-fit: contain;
   transition: transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
+  width: 100%;
 }
 
 .menu-item:hover .menu-pack-stage img,
 .menu-item.is-flipped .menu-pack-stage img {
-  transform: scale(1.025);
+  transform: scale(1.006);
 }
 
 .menu-pack-stage > span {
@@ -1084,9 +1106,19 @@ p {
 }
 
 .mango-image {
+  background: #d8c7a3;
+  isolation: isolate;
   min-height: 48rem;
   overflow: hidden;
   position: relative;
+}
+
+.mango-image-backdrop {
+  filter: blur(2rem) saturate(0.88) brightness(0.82);
+  object-fit: cover;
+  opacity: 0.8;
+  transform: scale(1.08);
+  z-index: 0;
 }
 
 .mango-image::after {
@@ -1098,15 +1130,17 @@ p {
   content: "";
   inset: 0;
   position: absolute;
+  z-index: 2;
 }
 
-.mango-image img {
-  object-fit: cover;
+.mango-image-art {
+  object-fit: contain !important;
   transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  z-index: 1;
 }
 
-.mango-image:hover img {
-  transform: scale(1.03);
+.mango-image:hover .mango-image-art {
+  transform: scale(1.004);
 }
 
 .mango-image span {
@@ -1394,6 +1428,21 @@ footer small {
 
 }
 
+@media (min-width: 1001px) and (max-height: 900px) {
+  .hero-copy {
+    padding-block: 4.7rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(5rem, 8vw, 8.5rem);
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+    margin: 2rem 0 1.4rem;
+  }
+}
+
 @media (max-width: 1000px) {
   .site-header {
     grid-template-columns: 1fr 1fr;
@@ -1568,12 +1617,11 @@ footer small {
   }
 
   .menu-photo {
-    aspect-ratio: 3 / 2;
     border-radius: var(--radius-md);
   }
 
   .menu-photo > img {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
   }
 
@@ -1607,7 +1655,7 @@ footer small {
 
   .menu-pack-stage {
     border-radius: calc(var(--radius-md) * 0.7);
-    min-height: 23rem;
+    flex-basis: 23rem;
   }
 
   .mango-image {

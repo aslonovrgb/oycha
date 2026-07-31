@@ -141,10 +141,20 @@ export default function Home() {
         <div className="hero-photo">
           <Image
             src="/jimo/campaign-candidates/jimo-hero-four-flavours-dark-v1.webp"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 42vw"
+            className="hero-photo-backdrop"
+            aria-hidden="true"
+          />
+          <Image
+            src="/jimo/campaign-candidates/jimo-hero-four-flavours-dark-v1.webp"
             alt="Four full-height Jimo pouches arranged on pale stone against a deep forest-green background"
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 48vw"
+            sizes="(max-width: 900px) 100vw, 42vw"
+            className="hero-photo-art"
           />
         </div>
 
@@ -229,7 +239,8 @@ export default function Home() {
           <Image
             src="/jimo/campaign-candidates/jimo-four-flavours-banner-v1.webp"
             alt="Top-down Jimo family photograph with Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha pouches"
-            fill
+            width={1536}
+            height={1024}
             sizes="(max-width: 900px) 100vw, 90vw"
           />
         </div>
@@ -254,9 +265,18 @@ export default function Home() {
         <div className="mango-image">
           <Image
             src="/jimo/matcha-mango-generated.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            className="mango-image-backdrop"
+            aria-hidden="true"
+          />
+          <Image
+            src="/jimo/matcha-mango-generated.jpg"
             alt="Editorial composition of Kagoshima matcha powder, mango and ice"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
+            className="mango-image-art"
           />
           <span>Matcha × Mango</span>
         </div>
