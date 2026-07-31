@@ -18,10 +18,7 @@ const editorial = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Jimo Matcha — Premium Kagoshima Matcha",
   description:
-    "Premium Kagoshima matcha, freshly crafted and packed to go. Discover Matcha Latte, Hojicha Latte and the signature dairy-free Matcha Mango.",
-  other: {
-    "codex-preview": "development",
-  },
+    "Premium Kagoshima matcha, freshly crafted and packed to go. Discover Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

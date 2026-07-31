@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FlavorCard } from "./flavor-card";
 
 const menu = [
   {
@@ -11,6 +12,9 @@ const menu = [
     image: "/jimo/drink-matcha-latte-4k.webp",
     imageAlt:
       "Iced Jimo Matcha Latte with vivid green matcha cascading into milk",
+    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-latte-v3-centered.webp",
+    packAlt: "Jimo Matcha Latte portable pouch with centered cap",
+    packNote: "Pale, creamy and ready whenever the green mood hits.",
   },
   {
     number: "02",
@@ -22,6 +26,9 @@ const menu = [
     image: "/jimo/drink-hojicha-latte-4k.webp",
     imageAlt:
       "Iced Jimo Hojicha Latte with roasted tea cascading into milk",
+    packImage: "/jimo/pouches-v2/jimo-pouch-hojicha-latte-v3-centered.webp",
+    packAlt: "Jimo Hojicha Latte portable pouch with centered cap",
+    packNote: "Roasted comfort, packed cold and made to move.",
   },
   {
     number: "03",
@@ -33,6 +40,9 @@ const menu = [
     image: "/jimo/drink-matcha-mango-4k.webp",
     imageAlt:
       "Iced Jimo Matcha Mango with vivid green matcha over golden mango",
+    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-mango-v3-centered.webp",
+    packAlt: "Jimo Matcha Mango portable pouch with centered cap",
+    packNote: "Green on top, mango gold below. Shake to make it yours.",
   },
   {
     number: "04",
@@ -44,6 +54,9 @@ const menu = [
     image: "/jimo/drink-yuzu-matcha-4k.webp",
     imageAlt:
       "Iced Jimo Yuzu Matcha with vivid green matcha over luminous yuzu citrus",
+    packImage: "/jimo/pouches-v2/jimo-pouch-yuzu-matcha-v3-centered.webp",
+    packAlt: "Jimo Yuzu Matcha portable pouch with centered cap",
+    packNote: "A bright citrus lift in the same go-anywhere ritual.",
   },
 ];
 
@@ -127,25 +140,12 @@ export default function Home() {
 
         <div className="hero-photo">
           <Image
-            src="/jimo/hero-pouches-4k.webp"
-            alt="Chilled Jimo Matcha portable packs in matcha latte, matcha and matcha mango flavours"
+            src="/jimo/campaign-candidates/jimo-hero-four-flavours-dark-v1.webp"
+            alt="Four full-height Jimo pouches arranged on pale stone against a deep forest-green background"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 48vw"
           />
-          <div className="hero-brand" aria-hidden="true">
-            <Image
-              src="/jimo/jimo-logo-white.png"
-              alt=""
-              width={835}
-              height={346}
-            />
-            <span>Premium Kagoshima matcha</span>
-          </div>
-          <div className="photo-label">
-            <span>Freshly crafted · Made to move</span>
-            <strong>Pack it. Chill it. Gooo.</strong>
-          </div>
         </div>
 
         <div className="hero-sticker">
@@ -227,55 +227,25 @@ export default function Home() {
 
         <div className="menu-photo">
           <Image
-            src="/jimo/menu-four-pouches-4k.webp"
-            alt="Four chilled Jimo pouches: Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha"
+            src="/jimo/campaign-candidates/jimo-four-flavours-banner-v1.webp"
+            alt="Top-down Jimo family photograph with Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha pouches"
             fill
             sizes="(max-width: 900px) 100vw, 90vw"
           />
-          <div className="menu-photo-brand" aria-hidden="true">
-            <Image
-              src="/jimo/jimo-logo-green.png"
-              alt=""
-              width={835}
-              height={346}
-            />
-            <span>Four flavours · One daily ritual</span>
+        </div>
+
+        <div className="pack-intro">
+          <div>
+            <span>Drink on the front</span>
+            <i aria-hidden="true">↻</i>
+            <span>Pack on the flip</span>
           </div>
-          <span>Jimo family · Generated from original product references</span>
+          <p>Hover to meet the pouch. Tap on mobile.</p>
         </div>
 
         <div className="menu-list">
           {menu.map((item) => (
-            <article className={`menu-item ${item.accent}`} key={item.name}>
-              <div className="menu-item-top">
-                <span>{item.number}</span>
-                <small>{item.tag}</small>
-              </div>
-              <div className="menu-drink">
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(max-width: 1000px) 92vw, 30vw"
-                />
-              </div>
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-              <div
-                className="price-row"
-                role="group"
-                aria-label={`${item.name} prices`}
-              >
-                <div>
-                  <small>250ml</small>
-                  <strong>RM15</strong>
-                </div>
-                <div>
-                  <small>500ml</small>
-                  <strong>RM28</strong>
-                </div>
-              </div>
-            </article>
+            <FlavorCard item={item} key={item.name} />
           ))}
         </div>
       </section>

@@ -4,7 +4,7 @@ import test from "node:test";
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
 
-test("renders development preview metadata", async () => {
+test("renders the complete Jimo product experience", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -29,5 +29,12 @@ test("renders development preview metadata", async () => {
     response.headers.get("content-type") ?? "",
     /^text\/html\b/i,
   );
-  assert.match(await response.text(), developmentPreviewMeta);
+  const html = await response.text();
+
+  assert.doesNotMatch(html, developmentPreviewMeta);
+  assert.match(html, /Jimo Matcha — Premium Kagoshima Matcha/i);
+  assert.match(html, /Meet the pack/i);
+  assert.match(html, /jimo-hero-four-flavours-dark-v1\.webp/i);
+  assert.match(html, /jimo-four-flavours-banner-v1\.webp/i);
+  assert.match(html, /jimo-pouch-yuzu-matcha-v3-centered\.webp/i);
 });

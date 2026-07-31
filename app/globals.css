@@ -376,17 +376,11 @@ p {
 }
 
 .hero-photo::after {
-  background:
-    linear-gradient(
-      180deg,
-      transparent 52%,
-      color-mix(in srgb, var(--jimo-forest-950) 38%, transparent)
-    ),
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--jimo-paper-100) 18%, transparent),
-      transparent 30%
-    );
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--jimo-paper-100) 12%, transparent),
+    transparent 18%
+  );
   content: "";
   inset: 0;
   pointer-events: none;
@@ -394,14 +388,13 @@ p {
 }
 
 .hero-photo > img {
-  filter: saturate(0.92) contrast(1.03);
-  object-fit: cover;
-  object-position: center 54%;
-  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  object-fit: contain;
+  object-position: center;
+  transition: filter 500ms ease;
 }
 
 .hero-photo:hover > img {
-  transform: scale(1.025);
+  filter: saturate(1.04) contrast(1.02);
 }
 
 .hero-brand {
@@ -704,7 +697,7 @@ p {
 }
 
 .menu-photo {
-  aspect-ratio: 16 / 8.5;
+  aspect-ratio: 3 / 2;
   border-radius: var(--card-radius);
   margin: 0 auto;
   max-width: 94rem;
@@ -713,14 +706,13 @@ p {
 }
 
 .menu-photo::after {
-  background: linear-gradient(
-    180deg,
-    transparent 70%,
-    color-mix(in srgb, var(--jimo-black) 35%, transparent)
-  );
+  border: 1px solid color-mix(in srgb, var(--jimo-paper-50) 16%, transparent);
+  border-radius: inherit;
   content: "";
   inset: 0;
+  pointer-events: none;
   position: absolute;
+  z-index: 2;
 }
 
 .menu-photo > img {
@@ -729,45 +721,40 @@ p {
 }
 
 .menu-photo:hover > img {
-  transform: scale(1.025);
+  transform: scale(1.012);
 }
 
-.menu-photo-brand {
-  color: var(--jimo-forest-950);
-  left: clamp(1.5rem, 4vw, 4rem);
-  position: absolute;
-  top: clamp(1.4rem, 4vw, 3.5rem);
-  width: clamp(7.5rem, 13vw, 13rem);
-  z-index: 3;
+.pack-intro {
+  align-items: center;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 18%, transparent);
+  display: flex;
+  justify-content: space-between;
+  margin: clamp(1.6rem, 3vw, 2.7rem) auto 0;
+  max-width: 94rem;
+  padding-bottom: 1rem;
 }
 
-.menu-photo-brand img {
-  display: block;
-  height: auto;
-  width: 100%;
+.pack-intro > div {
+  align-items: center;
+  display: flex;
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(1.35rem, 2.2vw, 2.1rem);
+  gap: 1rem;
 }
 
-.menu-photo-brand span {
-  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
-  display: block;
-  font-size: 0.5rem;
+.pack-intro i {
+  color: var(--jimo-lime-300);
+  font-style: normal;
+}
+
+.pack-intro p {
+  color: color-mix(in srgb, var(--jimo-paper-50) 64%, transparent);
+  font-size: 0.6rem;
   font-weight: 750;
-  letter-spacing: 0.14em;
-  margin-top: 0.55rem;
-  padding-top: 0.55rem;
-  text-transform: uppercase;
-}
-
-.menu-photo > span {
-  bottom: 1.4rem;
-  font-size: 0.55rem;
-  font-weight: 700;
-  left: 1.6rem;
   letter-spacing: 0.13em;
-  opacity: 0.78;
-  position: absolute;
+  margin: 0;
   text-transform: uppercase;
-  z-index: 2;
 }
 
 .menu-list {
@@ -779,21 +766,65 @@ p {
 }
 
 .menu-item {
-  background: var(--jimo-paper-100);
-  border-radius: var(--card-radius);
   color: var(--jimo-forest-950);
-  display: flex;
-  flex-direction: column;
-  min-height: 45rem;
-  overflow: hidden;
-  padding: clamp(1.5rem, 3vw, 2.3rem);
+  min-height: 52rem;
+  perspective: 1400px;
   position: relative;
-  transition:
-    transform 240ms ease,
-    background 240ms ease;
+  transition: transform 260ms ease;
+  z-index: 0;
 }
 
-.menu-item::before {
+.menu-item.matcha {
+  --flavour-accent: var(--jimo-matcha-300);
+}
+
+.menu-item.hojicha {
+  --flavour-accent: color-mix(
+    in srgb,
+    var(--jimo-hojicha-500) 58%,
+    var(--jimo-paper-100)
+  );
+}
+
+.menu-item.mango {
+  --flavour-accent: var(--jimo-mango-400);
+}
+
+.menu-item.yuzu {
+  --flavour-accent: var(--jimo-yuzu-300);
+}
+
+.menu-card-inner {
+  height: 100%;
+  min-height: inherit;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 720ms cubic-bezier(0.2, 0.75, 0.2, 1);
+  will-change: transform;
+  width: 100%;
+}
+
+.menu-item.is-flipped .menu-card-inner {
+  transform: rotateY(180deg);
+}
+
+.menu-card-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: var(--jimo-paper-100);
+  border: 1px solid color-mix(in srgb, var(--jimo-forest-950) 8%, transparent);
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  overflow: hidden;
+  padding: clamp(1.5rem, 3vw, 2.3rem);
+  position: absolute;
+  transform: rotateY(0.01deg);
+}
+
+.menu-card-front::before {
+  background: var(--flavour-accent);
   border-radius: 50%;
   content: "";
   height: 14rem;
@@ -804,32 +835,22 @@ p {
   width: 14rem;
 }
 
-.menu-item.matcha::before {
-  background: var(--jimo-matcha-300);
-}
-
-.menu-item.hojicha::before {
-  background: color-mix(
-    in srgb,
-    var(--jimo-hojicha-500) 58%,
-    var(--jimo-paper-100)
-  );
-}
-
-.menu-item.mango::before {
-  background: var(--jimo-mango-400);
-}
-
-.menu-item.yuzu::before {
-  background: var(--jimo-yuzu-300);
+.menu-card-back {
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      color-mix(in srgb, var(--flavour-accent) 75%, transparent),
+      transparent 34%
+    ),
+    var(--jimo-paper-50);
+  transform: rotateY(180deg);
 }
 
 .menu-item:hover {
-  background: var(--jimo-paper-50);
-  transform: translateY(-0.55rem);
+  transform: translateY(-0.45rem);
 }
 
-.menu-item:hover::before {
+.menu-item:hover .menu-card-front::before {
   transform: scale(1.14);
 }
 
@@ -854,10 +875,9 @@ p {
 }
 
 .menu-drink {
-  aspect-ratio: 1;
   background: var(--jimo-paper-50);
   border-radius: calc(var(--card-radius) * 0.64);
-  height: auto;
+  height: clamp(18rem, 21vw, 20rem);
   margin: 1.1rem 0 1.8rem;
   overflow: hidden;
   position: relative;
@@ -874,7 +894,7 @@ p {
 }
 
 .menu-drink img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -895,10 +915,10 @@ p {
   z-index: 2;
 }
 
-.menu-item > p {
+.menu-card-front > p {
   font-size: 0.8rem;
   line-height: 1.65;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   max-width: 24rem;
   opacity: 0.67;
 }
@@ -934,6 +954,126 @@ p {
   font-family: var(--font-editorial), Georgia, serif;
   font-size: 1.65rem;
   font-weight: 600;
+}
+
+.flip-trigger {
+  align-items: center;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--jimo-forest-950) 24%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--jimo-forest-950);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.58rem;
+  font-weight: 750;
+  justify-content: space-between;
+  letter-spacing: 0.12em;
+  margin-top: 1rem;
+  min-height: 2.8rem;
+  padding: 0.75rem 0.9rem 0.75rem 1rem;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+  width: 100%;
+}
+
+.flip-trigger span {
+  font-size: 1rem;
+}
+
+.flip-trigger:hover,
+.flip-trigger:focus-visible {
+  background: var(--jimo-forest-950);
+  border-color: var(--jimo-forest-950);
+  color: var(--jimo-paper-50);
+  outline: none;
+}
+
+.flip-trigger:focus-visible {
+  box-shadow: 0 0 0 3px var(--jimo-mango-400);
+}
+
+.menu-pack-stage {
+  background: color-mix(in srgb, var(--jimo-paper-100) 70%, white);
+  border-radius: calc(var(--card-radius) * 0.64);
+  flex: 1;
+  margin: 1.1rem 0 1.25rem;
+  min-height: 24rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-pack-stage::after {
+  border: 1px solid color-mix(in srgb, var(--jimo-forest-950) 9%, transparent);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.menu-pack-stage img {
+  object-fit: contain;
+  transition: transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.menu-item:hover .menu-pack-stage img,
+.menu-item.is-flipped .menu-pack-stage img {
+  transform: scale(1.025);
+}
+
+.menu-pack-stage > span {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--flavour-accent);
+  border-radius: 50%;
+  display: flex;
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  width: 3rem;
+  z-index: 2;
+}
+
+.menu-pack-copy > small {
+  display: block;
+  font-size: 0.54rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.menu-pack-copy h3 {
+  font-size: clamp(2.25rem, 3.3vw, 3.35rem);
+  line-height: 0.88;
+  margin-bottom: 0.8rem;
+  max-width: 10ch;
+}
+
+.menu-pack-copy p {
+  font-size: 0.76rem;
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0.68;
+}
+
+.flip-trigger-back {
+  margin-top: 1.2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-item:hover .menu-card-inner {
+    transform: rotateY(180deg);
+  }
 }
 
 .mango-feature {
@@ -1309,7 +1449,7 @@ footer small {
   }
 
   .menu-item {
-    min-height: 45rem;
+    min-height: 50rem;
   }
 
   .menu-item h3 {
@@ -1428,7 +1568,7 @@ footer small {
   }
 
   .menu-photo {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     border-radius: var(--radius-md);
   }
 
@@ -1437,25 +1577,23 @@ footer small {
     object-position: center;
   }
 
-  .menu-photo-brand {
-    left: 0.8rem;
-    top: 0.8rem;
-    width: 5.5rem;
+  .pack-intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .menu-photo-brand span {
-    display: none;
-  }
-
-  .menu-photo > span {
-    bottom: 0.7rem;
-    left: 0.8rem;
-    max-width: 12rem;
+  .pack-intro > div {
+    font-size: 1.3rem;
+    gap: 0.65rem;
   }
 
   .menu-item {
+    min-height: 49rem;
+  }
+
+  .menu-card-face {
     border-radius: var(--radius-md);
-    min-height: 43rem;
   }
 
   .menu-item h3 {
@@ -1464,6 +1602,12 @@ footer small {
 
   .menu-drink {
     border-radius: calc(var(--radius-md) * 0.7);
+    height: 19rem;
+  }
+
+  .menu-pack-stage {
+    border-radius: calc(var(--radius-md) * 0.7);
+    min-height: 23rem;
   }
 
   .mango-image {
