@@ -9,10 +9,10 @@ const menu = [
     description:
       "Rich, smooth Japanese matcha poured over fresh full cream milk.",
     accent: "matcha",
-    image: "/jimo/drink-matcha-latte-4k.webp",
+    image: "/jimo/drink-matcha-latte-card-v2.webp",
     imageAlt:
       "Iced Jimo Matcha Latte with vivid green matcha cascading into milk",
-    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-latte-v3-centered.webp",
+    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-latte-card-v3.webp",
     packAlt: "Jimo Matcha Latte portable pouch with centered cap",
     packNote: "Pale, creamy and ready whenever the green mood hits.",
   },
@@ -23,10 +23,10 @@ const menu = [
     description:
       "Roasted Japanese green tea with a warm, gently nutty aroma.",
     accent: "hojicha",
-    image: "/jimo/drink-hojicha-latte-4k.webp",
+    image: "/jimo/drink-hojicha-latte-card-v2.webp",
     imageAlt:
       "Iced Jimo Hojicha Latte with roasted tea cascading into milk",
-    packImage: "/jimo/pouches-v2/jimo-pouch-hojicha-latte-v3-centered.webp",
+    packImage: "/jimo/pouches-v2/jimo-pouch-hojicha-latte-card-v3.webp",
     packAlt: "Jimo Hojicha Latte portable pouch with centered cap",
     packNote: "Roasted comfort, packed cold and made to move.",
   },
@@ -37,10 +37,10 @@ const menu = [
     description:
       "A bright fusion of matcha, mango purée and a clean hint of lemon.",
     accent: "mango",
-    image: "/jimo/drink-matcha-mango-4k.webp",
+    image: "/jimo/drink-matcha-mango-card-v2.webp",
     imageAlt:
       "Iced Jimo Matcha Mango with vivid green matcha over golden mango",
-    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-mango-v3-centered.webp",
+    packImage: "/jimo/pouches-v2/jimo-pouch-matcha-mango-card-v3.webp",
     packAlt: "Jimo Matcha Mango portable pouch with centered cap",
     packNote: "Green on top, mango gold below. Shake to make it yours.",
   },
@@ -51,10 +51,10 @@ const menu = [
     description:
       "Ceremonial matcha lifted by bright Japanese yuzu for a crisp, clean citrus finish.",
     accent: "yuzu",
-    image: "/jimo/drink-yuzu-matcha-4k.webp",
+    image: "/jimo/drink-yuzu-matcha-card-v2.webp",
     imageAlt:
       "Iced Jimo Yuzu Matcha with vivid green matcha over luminous yuzu citrus",
-    packImage: "/jimo/pouches-v2/jimo-pouch-yuzu-matcha-v3-centered.webp",
+    packImage: "/jimo/pouches-v2/jimo-pouch-yuzu-matcha-card-v3.webp",
     packAlt: "Jimo Yuzu Matcha portable pouch with centered cap",
     packNote: "A bright citrus lift in the same go-anywhere ritual.",
   },
@@ -97,6 +97,7 @@ export default function Home() {
             width={835}
             height={346}
             priority
+            unoptimized
           />
         </a>
         <nav aria-label="Main navigation">
@@ -140,21 +141,13 @@ export default function Home() {
 
         <div className="hero-photo">
           <Image
-            src="/jimo/campaign-candidates/jimo-hero-four-flavours-dark-v1.webp"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 42vw"
-            className="hero-photo-backdrop"
-            aria-hidden="true"
-          />
-          <Image
-            src="/jimo/campaign-candidates/jimo-hero-four-flavours-dark-v1.webp"
+            src="/jimo/campaign-candidates/jimo-hero-four-flavours-square-v2.webp"
             alt="Four full-height Jimo pouches arranged on pale stone against a deep forest-green background"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 42vw"
             className="hero-photo-art"
+            unoptimized
           />
         </div>
 
@@ -237,11 +230,12 @@ export default function Home() {
 
         <div className="menu-photo">
           <Image
-            src="/jimo/campaign-candidates/jimo-four-flavours-banner-v1.webp"
+            src="/jimo/campaign-candidates/jimo-four-flavours-wide-v2.webp"
             alt="Top-down Jimo family photograph with Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha pouches"
-            width={1536}
-            height={1024}
+            width={1915}
+            height={821}
             sizes="(max-width: 900px) 100vw, 90vw"
+            unoptimized
           />
         </div>
 
@@ -270,6 +264,7 @@ export default function Home() {
             sizes="(max-width: 900px) 100vw, 50vw"
             className="mango-image-backdrop"
             aria-hidden="true"
+            unoptimized
           />
           <Image
             src="/jimo/matcha-mango-generated.jpg"
@@ -277,6 +272,7 @@ export default function Home() {
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
             className="mango-image-art"
+            unoptimized
           />
           <span>Matcha × Mango</span>
         </div>
@@ -372,6 +368,7 @@ export default function Home() {
             alt=""
             width={835}
             height={346}
+            unoptimized
           />
         </a>
         <div>

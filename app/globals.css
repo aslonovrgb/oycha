@@ -376,21 +376,8 @@ p {
   z-index: 2;
 }
 
-.hero-photo-backdrop {
-  filter: blur(2.2rem) saturate(0.8) brightness(0.72);
-  object-fit: cover;
-  opacity: 0.78;
-  transform: scale(1.08);
-  z-index: 0;
-}
-
 .hero-photo::after {
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--jimo-paper-100) 9%, transparent),
-    transparent 22%,
-    color-mix(in srgb, var(--jimo-black) 8%, transparent)
-  );
+  border: 1px solid color-mix(in srgb, var(--jimo-paper-50) 10%, transparent);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -399,7 +386,7 @@ p {
 }
 
 .hero-photo-art {
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center;
   transition: filter 500ms ease;
   z-index: 1;
@@ -710,12 +697,12 @@ p {
 
 .menu-photo {
   background: var(--jimo-paper-100);
-  border-radius: var(--card-radius);
+  border-radius: clamp(1.4rem, 2vw, 2.2rem);
   margin: 0 auto;
   max-width: 94rem;
   overflow: hidden;
   position: relative;
-  width: min(100%, 117svh);
+  width: 100%;
 }
 
 .menu-photo::after {
@@ -892,8 +879,9 @@ p {
 
 .menu-drink {
   background: var(--jimo-paper-50);
+  aspect-ratio: 9 / 10;
   border-radius: calc(var(--card-radius) * 0.64);
-  height: clamp(18rem, 21vw, 20rem);
+  height: auto;
   margin: 1.1rem 0 1.8rem;
   overflow: hidden;
   position: relative;
@@ -912,7 +900,7 @@ p {
 .menu-drink img {
   display: block;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
   width: 100%;
@@ -1038,7 +1026,8 @@ p {
 .menu-pack-stage img {
   display: block;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   transition: transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
   width: 100%;
 }
@@ -1462,7 +1451,8 @@ footer small {
   }
 
   .hero-photo {
-    min-height: 78svh;
+    aspect-ratio: 1;
+    min-height: 0;
   }
 
   .hero-brand {
@@ -1564,7 +1554,8 @@ footer small {
   }
 
   .hero-photo {
-    min-height: 73svh;
+    aspect-ratio: 1;
+    min-height: 0;
   }
 
   .hero-brand {
@@ -1649,8 +1640,9 @@ footer small {
   }
 
   .menu-drink {
+    aspect-ratio: 9 / 10;
     border-radius: calc(var(--radius-md) * 0.7);
-    height: 19rem;
+    height: auto;
   }
 
   .menu-pack-stage {

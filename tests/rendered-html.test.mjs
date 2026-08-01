@@ -34,7 +34,7 @@ test("renders the complete Jimo product experience", async () => {
   assert.doesNotMatch(html, developmentPreviewMeta);
   assert.match(html, /Jimo Matcha — Premium Kagoshima Matcha/i);
   assert.match(html, /Meet the pack/i);
-  assert.match(html, /jimo-hero-four-flavours-dark-v1\.webp/i);
-  assert.match(html, /jimo-four-flavours-banner-v1\.webp/i);
-  assert.match(html, /jimo-pouch-yuzu-matcha-v3-centered\.webp/i);
+  assert.match(html, /jimo-hero-four-flavours-square-v2\.webp/i);
+  assert.match(html, /jimo-four-flavours-wide-v2\.webp/i);
+  assert.match(html, /jimo-pouch-yuzu-matcha-card-v3\.webp/i);
 });
