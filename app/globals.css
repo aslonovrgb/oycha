@@ -1329,6 +1329,75 @@ p {
   z-index: 3;
 }
 
+.closing-flavours {
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 18%, transparent);
+  border-top: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 18%, transparent);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(4rem, 8vw, 7rem);
+  max-width: 78rem;
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+
+.closing-flavour {
+  --closing-accent: var(--jimo-matcha-300);
+
+  align-items: center;
+  border-right: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 18%, transparent);
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: auto 1fr;
+  min-height: 6.5rem;
+  padding: 1.2rem clamp(1rem, 2.2vw, 2rem);
+  text-align: left;
+}
+
+.closing-flavour:last-child {
+  border-right: 0;
+}
+
+.closing-flavour::before {
+  background: var(--closing-accent);
+  border-radius: 50%;
+  content: "";
+  height: 0.58rem;
+  width: 0.58rem;
+}
+
+.closing-flavour > span {
+  color: color-mix(in srgb, var(--jimo-paper-50) 55%, transparent);
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: 0.82rem;
+  grid-column: 2;
+  line-height: 1;
+}
+
+.closing-flavour strong {
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-weight: 500;
+  grid-column: 2;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.closing-flavour-hojicha {
+  --closing-accent: var(--jimo-hojicha-500);
+}
+
+.closing-flavour-mango {
+  --closing-accent: var(--jimo-mango-400);
+}
+
+.closing-flavour-yuzu {
+  --closing-accent: var(--jimo-yuzu-300);
+}
+
 .closing-orbit {
   align-items: center;
   aspect-ratio: 1;
@@ -1651,7 +1720,17 @@ footer small {
   }
 
   .mango-image {
-    min-height: 68svh;
+    aspect-ratio: 1023 / 1537;
+    min-height: 0;
+  }
+
+  .mango-image-backdrop {
+    display: none;
+  }
+
+  .mango-image-art {
+    object-fit: cover !important;
+    object-position: center;
   }
 
   .mango-copy {
@@ -1688,19 +1767,42 @@ footer small {
   }
 
   .closing {
-    min-height: 82svh;
+    min-height: 0;
+    padding-bottom: 4.5rem;
   }
 
   .closing h2 {
     font-size: clamp(4.8rem, 22vw, 7rem);
   }
 
+  .closing-flavours {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 4rem;
+  }
+
+  .closing-flavour {
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--jimo-paper-50) 18%, transparent);
+    min-height: 5.5rem;
+    padding: 1rem;
+  }
+
+  .closing-flavour:nth-child(2) {
+    border-right: 0;
+  }
+
+  .closing-flavour:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
   .closing-orbit {
-    opacity: 0.68;
+    opacity: 0.36;
   }
 
   footer {
+    gap: 1.5rem;
     grid-template-columns: 1fr;
+    padding-block: 3rem;
   }
 
   .footer-wordmark {

@@ -349,6 +349,17 @@ export default function Home() {
         >
           Find us on Instagram <span aria-hidden="true">↗</span>
         </a>
+        <div className="closing-flavours" aria-label="The Jimo four">
+          {menu.map((item, index) => (
+            <div
+              className={`closing-flavour closing-flavour-${item.accent}`}
+              key={item.name}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item.name}</strong>
+            </div>
+          ))}
+        </div>
         <div className="closing-orbit orbit-one" aria-hidden="true">
           Shake
         </div>
