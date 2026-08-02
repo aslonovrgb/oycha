@@ -16,12 +16,33 @@ const editorial = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oycha.vercel.app"),
   title: "Jimo Matcha — Premium Kagoshima Matcha",
   description:
     "Premium Kagoshima matcha, freshly crafted and packed to go. Discover Matcha Latte, Hojicha Latte, Matcha Mango and Yuzu Matcha.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
+  },
+  openGraph: {
+    title: "Jimo Matcha — Find your green",
+    description:
+      "Premium Kagoshima matcha, freshly crafted and packed to go.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Four Jimo Matcha flavours ready to go",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jimo Matcha — Find your green",
+    description:
+      "Premium Kagoshima matcha, freshly crafted and packed to go.",
+    images: ["/og.png"],
   },
 };
 

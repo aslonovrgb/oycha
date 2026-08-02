@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { FlavorCard } from "./flavor-card";
+import { FlavorFinder } from "./flavor-finder";
 
 const menu = [
   {
     number: "01",
+    slug: "matcha-latte",
     tag: "Classic",
     name: "Matcha Latte",
     description:
@@ -18,6 +20,7 @@ const menu = [
   },
   {
     number: "02",
+    slug: "hojicha-latte",
     tag: "Roasted",
     name: "Hojicha Latte",
     description:
@@ -32,6 +35,7 @@ const menu = [
   },
   {
     number: "03",
+    slug: "matcha-mango",
     tag: "Signature · Dairy free",
     name: "Matcha Mango",
     description:
@@ -46,6 +50,7 @@ const menu = [
   },
   {
     number: "04",
+    slug: "yuzu-matcha",
     tag: "New · Citrus",
     name: "Yuzu Matcha",
     description:
@@ -102,6 +107,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#story">Our matcha</a>
+          <a href="#finder">Find your Jimo</a>
           <a href="#menu">Menu</a>
           <a href="#ritual">How it works</a>
         </nav>
@@ -130,12 +136,12 @@ export default function Home() {
             that never sits still.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="#menu">
-              Taste the menu <span aria-hidden="true">↓</span>
+            <a className="primary-button" href="#finder">
+              Find your Jimo <span aria-hidden="true">↓</span>
             </a>
-            <p>
-              Shake <span>→</span> Sip <span>→</span> Enjoy
-            </p>
+            <a className="hero-menu-link" href="#menu">
+              Taste the menu <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
 
@@ -211,6 +217,8 @@ export default function Home() {
           <span>J</span>
         </div>
       </section>
+
+      <FlavorFinder />
 
       <section className="menu-section" id="menu">
         <div className="menu-heading">
@@ -395,6 +403,20 @@ export default function Home() {
         </a>
         <small>© 2026 Jimo Matcha</small>
       </footer>
+
+      <nav className="mobile-action-bar" aria-label="Quick actions">
+        <a href="#finder">
+          <span>Find your</span>
+          <strong>Jimo</strong>
+        </a>
+        <a
+          href="https://www.instagram.com/jimomatcha/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
     </main>
   );
 }

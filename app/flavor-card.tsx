@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 
 type Flavor = {
   number: string;
+  slug: string;
   tag: string;
   name: string;
   description: string;
@@ -39,6 +40,7 @@ export function FlavorCard({ item }: { item: Flavor }) {
   return (
     <article
       className={`menu-item ${item.accent}${isFlipped ? " is-flipped" : ""}`}
+      id={`flavour-${item.slug}`}
       aria-label={`${item.name}: drink and portable pack`}
     >
       <div className="menu-card-inner">
