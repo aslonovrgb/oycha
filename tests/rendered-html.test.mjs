@@ -37,4 +37,7 @@ test("renders the complete Jimo product experience", async () => {
   assert.match(html, /jimo-hero-four-flavours-square-v2\.webp/i);
   assert.match(html, /jimo-four-flavours-wide-v2\.webp/i);
   assert.match(html, /jimo-pouch-yuzu-matcha-card-v3\.webp/i);
+  assert.match(html, /One size · 250 ml/i);
+  assert.match(html, /RM16/i);
+  assert.doesNotMatch(html, /500ml|RM15|RM28/i);
 });

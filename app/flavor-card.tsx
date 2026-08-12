@@ -70,15 +70,11 @@ export function FlavorCard({ item }: { item: Flavor }) {
           <div
             className="price-row"
             role="group"
-            aria-label={`${item.name} prices`}
+            aria-label={`${item.name}: 250 millilitres, 16 Malaysian ringgit`}
           >
             <div>
-              <small>250ml</small>
-              <strong>RM15</strong>
-            </div>
-            <div>
-              <small>500ml</small>
-              <strong>RM28</strong>
+              <small>One size · 250 ml</small>
+              <strong>RM16</strong>
             </div>
           </div>
 
