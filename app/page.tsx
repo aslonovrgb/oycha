@@ -65,6 +65,51 @@ const menu = [
   },
 ];
 
+const wildMoments = [
+  {
+    number: "01",
+    title: "After training",
+    flavour: "Matcha Mango",
+    image: "/jimo/in-the-wild/jimo-after-training.webp",
+    alt: "Athlete holding a Jimo Matcha Mango pouch after training",
+  },
+  {
+    number: "02",
+    title: "At work",
+    flavour: "Hojicha Latte",
+    image: "/jimo/in-the-wild/jimo-at-work.webp",
+    alt: "Creative professional holding a Jimo Hojicha Latte pouch at her desk",
+  },
+  {
+    number: "03",
+    title: "In the city",
+    flavour: "Yuzu Matcha",
+    image: "/jimo/in-the-wild/jimo-in-the-city.webp",
+    alt: "Driver holding a Jimo Yuzu Matcha pouch in a parked car",
+  },
+  {
+    number: "04",
+    title: "Outside",
+    flavour: "Matcha Latte",
+    image: "/jimo/in-the-wild/jimo-outside-v2.webp",
+    alt: "Woman carrying a compact Jimo Matcha Latte pouch through a tropical park",
+  },
+  {
+    number: "05",
+    title: "By the sea",
+    flavour: "Yuzu Matcha",
+    image: "/jimo/in-the-wild/jimo-by-the-sea.webp",
+    alt: "Beachgoer holding a Jimo Yuzu Matcha pouch beside the sea",
+  },
+  {
+    number: "06",
+    title: "On campus",
+    flavour: "Matcha Mango",
+    image: "/jimo/in-the-wild/jimo-on-campus.webp",
+    alt: "Student carrying a Jimo Matcha Mango pouch on campus",
+  },
+];
+
 const ritual = [
   {
     number: "01",
@@ -231,8 +276,8 @@ export default function Home() {
             </h2>
           </div>
           <p>
-            One premium tea ritual, four moods. Every size keeps the same
-            full-flavour Jimo energy.
+            One premium tea ritual, four moods. Every 250 ml pouch keeps the
+            same full-flavour Jimo energy.
           </p>
         </div>
 
@@ -260,6 +305,61 @@ export default function Home() {
           {menu.map((item) => (
             <FlavorCard item={item} key={item.name} />
           ))}
+        </div>
+      </section>
+
+      <section className="wild-section" id="wild">
+        <div className="wild-heading">
+          <div>
+            <p className="kicker">Jimo in the wild</p>
+            <h2>
+              Your day,
+              <br />
+              <em>your green.</em>
+            </h2>
+          </div>
+          <div className="wild-intro">
+            <span>Everyday energy · 01—06</span>
+            <p>
+              Workdays, workouts, city drives and days by the sea. One cold
+              pack, wherever the day goes.
+            </p>
+          </div>
+        </div>
+
+        <div className="wild-grid" aria-label="Jimo lifestyle series">
+          {wildMoments.map((moment, index) => (
+            <figure
+              className={`wild-card wild-card-${index + 1}`}
+              key={moment.title}
+            >
+              <Image
+                src={moment.image}
+                alt={moment.alt}
+                fill
+                sizes="(max-width: 680px) 82vw, (max-width: 1000px) 46vw, 34vw"
+                unoptimized
+              />
+              <figcaption>
+                <span>
+                  {moment.number} / {moment.title}
+                </span>
+                <strong>{moment.flavour}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="wild-footer">
+          <p className="wild-swipe">Swipe to explore <span aria-hidden="true">→</span></p>
+          <span>Made to move</span>
+          <a
+            href="https://www.instagram.com/jimomatcha/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Follow the ritual <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
