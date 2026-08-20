@@ -2076,12 +2076,12 @@ p {
   align-self: flex-start;
   color: var(--jimo-lime-300);
   font-family: var(--font-editorial), Georgia, serif;
-  font-size: clamp(4.6rem, 8vw, 9rem);
+  font-size: clamp(2.8rem, 4.8vw, 5.4rem);
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.07em;
-  line-height: 0.7;
-  transform: rotate(-4deg);
+  line-height: 0.78;
+  transform: rotate(-2deg);
   transform-origin: left bottom;
 }
 
@@ -2612,7 +2612,7 @@ p {
   }
 
   .footer-author-credit strong {
-    font-size: clamp(4.8rem, 23vw, 7rem);
+    font-size: clamp(3.2rem, 15vw, 4.6rem);
   }
 
   .mobile-action-bar {
