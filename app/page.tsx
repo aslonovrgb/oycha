@@ -476,32 +476,57 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <a
-          className="footer-wordmark"
-          href="#top"
-          aria-label="Jimo Matcha home"
-        >
-          <Image
-            src="/jimo/jimo-logo-white.png"
-            alt=""
-            width={835}
-            height={346}
-            unoptimized
-          />
-        </a>
-        <div>
-          <span>Premium Kagoshima matcha</span>
-          <span>Crafted daily</span>
+      <footer className="site-footer">
+        <div className="footer-main">
+          <a
+            className="footer-wordmark"
+            href="#top"
+            aria-label="Jimo Matcha home"
+          >
+            <Image
+              src="/jimo/jimo-logo-white.png"
+              alt=""
+              width={835}
+              height={346}
+              unoptimized
+            />
+          </a>
+          <div>
+            <span>Premium Kagoshima matcha</span>
+            <span>Crafted daily</span>
+          </div>
+          <a
+            href="https://www.instagram.com/jimomatcha/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @jimomatcha ↗
+          </a>
+          <small>© 2026 Jimo Matcha</small>
         </div>
-        <a
-          href="https://www.instagram.com/jimomatcha/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          @jimomatcha ↗
-        </a>
-        <small>© 2026 Jimo Matcha</small>
+
+        <div className="footer-credits">
+          <div className="footer-studio-credit">
+            <span>Proudly presented by</span>
+            <a
+              className="footer-studio-link"
+              href="https://creativesinfinity.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit Creatives Infinity website"
+            >
+              <strong>Creatives Infinity</strong>
+              <small>
+                creativesinfinity.com <i aria-hidden="true">↗</i>
+              </small>
+            </a>
+          </div>
+
+          <div className="footer-author-credit">
+            <span>Creative direction &amp; digital experience</span>
+            <strong aria-label="Author: Daniel">Daniel</strong>
+          </div>
+        </div>
       </footer>
 
       <nav className="mobile-action-bar" aria-label="Quick actions">

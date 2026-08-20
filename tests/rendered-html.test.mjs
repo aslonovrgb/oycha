@@ -41,5 +41,9 @@ test("renders the complete Jimo product experience", async () => {
   assert.match(html, /RM16/i);
   assert.match(html, /Jimo in the wild/i);
   assert.match(html, /jimo-outside-v2\.webp/i);
+  assert.match(html, /Proudly presented by/i);
+  assert.match(html, /Creatives Infinity/i);
+  assert.match(html, /creativesinfinity\.com/i);
+  assert.match(html, /Author: Daniel/i);
   assert.doesNotMatch(html, /500ml|RM15|RM28/i);
 });

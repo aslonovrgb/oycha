@@ -1946,12 +1946,15 @@ p {
   transform: rotate(12deg);
 }
 
-footer {
-  align-items: end;
+.site-footer {
   background: var(--jimo-forest-950);
   border-top: 1px solid
     color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
   color: var(--jimo-paper-50);
+}
+
+.footer-main {
+  align-items: end;
   display: grid;
   gap: 2rem;
   grid-template-columns: 1.4fr 0.8fr 0.8fr auto;
@@ -1963,23 +1966,123 @@ footer {
   width: clamp(8rem, 15vw, 15rem);
 }
 
-footer > div {
+.footer-main > div {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
 }
 
-footer span,
-footer > a:not(.footer-wordmark),
-footer small {
+.footer-main span,
+.footer-main > a:not(.footer-wordmark),
+.footer-main small {
   font-size: 0.61rem;
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
-footer small {
+.footer-main small {
   opacity: 0.72;
+}
+
+.footer-credits {
+  border-top: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
+  display: grid;
+  gap: clamp(3rem, 7vw, 8rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+  min-height: clamp(17rem, 24vw, 25rem);
+  overflow: hidden;
+  padding: clamp(2.8rem, 5vw, 5rem) var(--page-gutter);
+  position: relative;
+}
+
+.footer-studio-credit,
+.footer-author-credit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-studio-credit > span,
+.footer-author-credit > span {
+  color: color-mix(in srgb, var(--jimo-paper-50) 64%, transparent);
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-studio-link {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 3rem;
+  width: fit-content;
+}
+
+.footer-studio-link strong {
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(3.5rem, 6.8vw, 7.4rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.76;
+  transition: color 220ms ease;
+}
+
+.footer-studio-link small {
+  align-items: center;
+  color: color-mix(in srgb, var(--jimo-paper-50) 68%, transparent);
+  display: inline-flex;
+  font-size: 0.58rem;
+  font-weight: 700;
+  gap: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-studio-link i {
+  color: var(--jimo-lime-300);
+  font-style: normal;
+  transition: transform 220ms ease;
+}
+
+.footer-studio-link:hover strong,
+.footer-studio-link:focus-visible strong {
+  color: var(--jimo-lime-300);
+}
+
+.footer-studio-link:hover i,
+.footer-studio-link:focus-visible i {
+  transform: translate(0.2rem, -0.2rem);
+}
+
+.footer-studio-link:focus-visible {
+  border-radius: 0.4rem;
+  outline: 2px solid var(--jimo-lime-300);
+  outline-offset: 0.7rem;
+}
+
+.footer-author-credit {
+  border-left: 1px solid
+    color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
+  padding-left: clamp(2rem, 4vw, 4.5rem);
+}
+
+.footer-author-credit strong {
+  align-self: flex-start;
+  color: var(--jimo-lime-300);
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(4.6rem, 8vw, 9rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.7;
+  transform: rotate(-4deg);
+  transform-origin: left bottom;
 }
 
 @keyframes sticker-float {
@@ -2136,7 +2239,7 @@ footer small {
     padding-inline: var(--page-gutter);
   }
 
-  footer {
+  .footer-main {
     align-items: start;
     grid-template-columns: 1fr 1fr;
   }
@@ -2474,14 +2577,42 @@ footer small {
     opacity: 0.36;
   }
 
-  footer {
+  .footer-main {
     gap: 1.5rem;
     grid-template-columns: 1fr;
-    padding-block: 3rem 7.5rem;
+    padding-block: 3rem;
   }
 
   .footer-wordmark {
     grid-column: auto;
+  }
+
+  .footer-credits {
+    gap: 3.5rem;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-block: 3.5rem 8rem;
+  }
+
+  .footer-studio-link {
+    margin-top: 3.5rem;
+  }
+
+  .footer-studio-link strong {
+    font-size: clamp(3.1rem, 15.5vw, 4.8rem);
+  }
+
+  .footer-author-credit {
+    border-left: 0;
+    border-top: 1px solid
+      color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
+    gap: 4rem;
+    padding-left: 0;
+    padding-top: 2.2rem;
+  }
+
+  .footer-author-credit strong {
+    font-size: clamp(4.8rem, 23vw, 7rem);
   }
 
   .mobile-action-bar {
