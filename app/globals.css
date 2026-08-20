@@ -2039,16 +2039,6 @@ p {
   outline-offset: 0.35rem;
 }
 
-.footer-credit-separator {
-  color: color-mix(in srgb, var(--jimo-paper-50) 34%, transparent);
-  font-style: normal;
-}
-
-.footer-credit-meta strong {
-  color: var(--jimo-paper-50);
-  font-weight: 800;
-}
-
 @keyframes sticker-float {
   0%,
   100% {

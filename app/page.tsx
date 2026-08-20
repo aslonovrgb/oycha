@@ -517,8 +517,6 @@ export default function Home() {
             >
               Creatives Infinity <i aria-hidden="true">↗</i>
             </a>
-            <i className="footer-credit-separator" aria-hidden="true">·</i>
-            <span>Digital experience by <strong aria-label="Author: Daniel">Daniel</strong></span>
           </span>
         </div>
       </footer>
