@@ -502,12 +502,12 @@ export default function Home() {
           >
             @jimomatcha ↗
           </a>
-          <small>© 2026 Jimo Matcha</small>
         </div>
 
         <div className="footer-credits">
-          <div className="footer-studio-credit">
-            <span>Proudly presented by</span>
+          <span>© 2026 Jimo Matcha. All rights reserved.</span>
+          <span className="footer-credit-meta">
+            Proudly presented by
             <a
               className="footer-studio-link"
               href="https://creativesinfinity.com/"
@@ -515,17 +515,11 @@ export default function Home() {
               rel="noreferrer"
               aria-label="Visit Creatives Infinity website"
             >
-              <strong>Creatives Infinity</strong>
-              <small>
-                creativesinfinity.com <i aria-hidden="true">↗</i>
-              </small>
+              Creatives Infinity <i aria-hidden="true">↗</i>
             </a>
-          </div>
-
-          <div className="footer-author-credit">
-            <span>Creative direction &amp; digital experience</span>
-            <strong aria-label="Author: Daniel">Daniel</strong>
-          </div>
+            <i className="footer-credit-separator" aria-hidden="true">·</i>
+            <span>Digital experience by <strong aria-label="Author: Daniel">Daniel</strong></span>
+          </span>
         </div>
       </footer>
 

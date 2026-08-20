@@ -1957,7 +1957,7 @@ p {
   align-items: end;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1.4fr 0.8fr 0.8fr auto;
+  grid-template-columns: 1.4fr 0.8fr auto;
   padding: 3.5rem var(--page-gutter);
 }
 
@@ -1988,71 +1988,44 @@ p {
 .footer-credits {
   border-top: 1px solid
     color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
-  display: grid;
-  gap: clamp(3rem, 7vw, 8rem);
-  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
-  min-height: clamp(17rem, 24vw, 25rem);
-  overflow: hidden;
-  padding: clamp(2.8rem, 5vw, 5rem) var(--page-gutter);
-  position: relative;
-}
-
-.footer-studio-credit,
-.footer-author-credit {
+  align-items: center;
+  color: color-mix(in srgb, var(--jimo-paper-50) 58%, transparent);
   display: flex;
-  flex-direction: column;
+  font-size: 0.57rem;
+  font-weight: 650;
+  gap: 1rem 2rem;
   justify-content: space-between;
-  position: relative;
-  z-index: 1;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+  padding: 1rem var(--page-gutter) 1.15rem;
+  text-transform: uppercase;
 }
 
-.footer-studio-credit > span,
-.footer-author-credit > span {
-  color: color-mix(in srgb, var(--jimo-paper-50) 64%, transparent);
-  font-size: 0.58rem;
-  font-weight: 750;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+.footer-credit-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  justify-content: flex-end;
 }
 
 .footer-studio-link {
-  align-items: flex-start;
+  align-items: center;
+  color: var(--jimo-lime-300);
   display: inline-flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  margin-top: 3rem;
-  width: fit-content;
-}
-
-.footer-studio-link strong {
-  font-family: var(--font-editorial), Georgia, serif;
-  font-size: clamp(3.5rem, 6.8vw, 7.4rem);
-  font-weight: 500;
-  letter-spacing: -0.065em;
-  line-height: 0.76;
+  font-weight: 800;
+  gap: 0.32rem;
   transition: color 220ms ease;
 }
 
-.footer-studio-link small {
-  align-items: center;
-  color: color-mix(in srgb, var(--jimo-paper-50) 68%, transparent);
-  display: inline-flex;
-  font-size: 0.58rem;
-  font-weight: 700;
-  gap: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .footer-studio-link i {
-  color: var(--jimo-lime-300);
   font-style: normal;
   transition: transform 220ms ease;
 }
 
-.footer-studio-link:hover strong,
-.footer-studio-link:focus-visible strong {
-  color: var(--jimo-lime-300);
+.footer-studio-link:hover,
+.footer-studio-link:focus-visible {
+  color: var(--jimo-paper-50);
 }
 
 .footer-studio-link:hover i,
@@ -2061,28 +2034,19 @@ p {
 }
 
 .footer-studio-link:focus-visible {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   outline: 2px solid var(--jimo-lime-300);
-  outline-offset: 0.7rem;
+  outline-offset: 0.35rem;
 }
 
-.footer-author-credit {
-  border-left: 1px solid
-    color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
-  padding-left: clamp(2rem, 4vw, 4.5rem);
+.footer-credit-separator {
+  color: color-mix(in srgb, var(--jimo-paper-50) 34%, transparent);
+  font-style: normal;
 }
 
-.footer-author-credit strong {
-  align-self: flex-start;
-  color: var(--jimo-lime-300);
-  font-family: var(--font-editorial), Georgia, serif;
-  font-size: clamp(2.8rem, 4.8vw, 5.4rem);
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.07em;
-  line-height: 0.78;
-  transform: rotate(-2deg);
-  transform-origin: left bottom;
+.footer-credit-meta strong {
+  color: var(--jimo-paper-50);
+  font-weight: 800;
 }
 
 @keyframes sticker-float {
@@ -2588,31 +2552,14 @@ p {
   }
 
   .footer-credits {
-    gap: 3.5rem;
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding-block: 3.5rem 8rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-block: 1.15rem 7.5rem;
   }
 
-  .footer-studio-link {
-    margin-top: 3.5rem;
-  }
-
-  .footer-studio-link strong {
-    font-size: clamp(3.1rem, 15.5vw, 4.8rem);
-  }
-
-  .footer-author-credit {
-    border-left: 0;
-    border-top: 1px solid
-      color-mix(in srgb, var(--jimo-paper-50) 15%, transparent);
-    gap: 4rem;
-    padding-left: 0;
-    padding-top: 2.2rem;
-  }
-
-  .footer-author-credit strong {
-    font-size: clamp(3.2rem, 15vw, 4.6rem);
+  .footer-credit-meta {
+    justify-content: flex-start;
   }
 
   .mobile-action-bar {
