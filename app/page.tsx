@@ -2,6 +2,37 @@ import Image from "next/image";
 import { FlavorCard } from "./flavor-card";
 import { FlavorFinder } from "./flavor-finder";
 
+const WHATSAPP_ORDER_TEXT =
+  "Hi Jimo! I would like to order Jimo Matcha. Please share today’s availability and pickup or delivery details. Thank you!";
+const WHATSAPP_ORDER_URL = `https://wa.me/60123650096?text=${encodeURIComponent(
+  WHATSAPP_ORDER_TEXT,
+)}`;
+const WHATSAPP_ORDER_LABEL =
+  "Order Jimo Matcha via WhatsApp (opens in a new tab)";
+
+function WhatsAppIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="whatsapp-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M20.1 11.7a8.1 8.1 0 0 1-12 7.1L4 19.9l1.1-4A8.1 8.1 0 1 1 20 11.7Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.3.1.5-.1.7l-.5.6c-.2.2-.2.4 0 .7.5.9 1.2 1.6 2.1 2.1.3.2.5.2.7 0l.7-.8c.2-.2.4-.3.7-.1l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.3-.8 1.9-.6.5-1.4.7-2.2.5-1.2-.3-2.7-1-4.3-2.4-1.2-1.1-2.1-2.5-2.5-3.6-.3-.9 0-1.8.4-2.3l.3-.3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 const menu = [
   {
     number: "01",
@@ -157,12 +188,15 @@ export default function Home() {
           <a href="#ritual">How it works</a>
         </nav>
         <a
-          className="instagram-link"
-          href="https://www.instagram.com/jimomatcha/"
+          className="header-order-link"
+          href={WHATSAPP_ORDER_URL}
           target="_blank"
           rel="noreferrer"
+          aria-label={WHATSAPP_ORDER_LABEL}
         >
-          @jimomatcha <span aria-hidden="true">↗</span>
+          <WhatsAppIcon />
+          <span>Order on WhatsApp</span>
+          <i aria-hidden="true">↗</i>
         </a>
       </header>
 
@@ -181,8 +215,14 @@ export default function Home() {
             that never sits still.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="#finder">
-              Find your Jimo <span aria-hidden="true">↓</span>
+            <a
+              className="primary-button whatsapp-button"
+              href={WHATSAPP_ORDER_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={WHATSAPP_ORDER_LABEL}
+            >
+              Order on WhatsApp <WhatsAppIcon />
             </a>
             <a className="hero-menu-link" href="#menu">
               Taste the menu <span aria-hidden="true">→</span>
@@ -451,11 +491,12 @@ export default function Home() {
         </h2>
         <a
           className="primary-button cream-button"
-          href="https://www.instagram.com/jimomatcha/"
+          href={WHATSAPP_ORDER_URL}
           target="_blank"
           rel="noreferrer"
+          aria-label={WHATSAPP_ORDER_LABEL}
         >
-          Find us on Instagram <span aria-hidden="true">↗</span>
+          Order on WhatsApp <WhatsAppIcon />
         </a>
         <div className="closing-flavours" aria-label="The Jimo four">
           {menu.map((item, index) => (
@@ -522,17 +563,17 @@ export default function Home() {
       </footer>
 
       <nav className="mobile-action-bar" aria-label="Quick actions">
-        <a href="#finder">
-          <span>Find your</span>
-          <strong>Jimo</strong>
-        </a>
         <a
-          href="https://www.instagram.com/jimomatcha/"
+          href={WHATSAPP_ORDER_URL}
           target="_blank"
           rel="noreferrer"
+          aria-label={WHATSAPP_ORDER_LABEL}
         >
-          Instagram <span aria-hidden="true">↗</span>
+          <WhatsAppIcon />
+          <span>Order on</span>
+          <strong>WhatsApp</strong>
         </a>
+        <a href="#finder">Find your Jimo</a>
       </nav>
     </main>
   );

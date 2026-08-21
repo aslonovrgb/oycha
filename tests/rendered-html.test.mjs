@@ -44,6 +44,9 @@ test("renders the complete Jimo product experience", async () => {
   assert.match(html, /Proudly presented by/i);
   assert.match(html, /Creatives Infinity/i);
   assert.match(html, /creativesinfinity\.com/i);
+  assert.match(html, /Order on WhatsApp/i);
+  assert.match(html, /https:\/\/wa\.me\/60123650096\?text=/i);
+  assert.match(html, /pickup%20or%20delivery/i);
   assert.doesNotMatch(html, /Daniel|Author:/i);
   assert.doesNotMatch(html, /500ml|RM15|RM28/i);
 });
